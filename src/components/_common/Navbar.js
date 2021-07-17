@@ -1,63 +1,22 @@
-////// React Core :
-import React, { useState } from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "./Navbar.module.css";
+import routes from "../../routes";
 
-////// Backend :
-
-////// Contexts :
-
-////// Internal Functions :
-
-////// Internal Components :
-
-////// Libraries Components :
-// librairy_name
-
-////// Medias :
-
-////// Styles :
-
-////// Constants :
-
-
-///////////////////////-- Component Function --///////////////////////////////////////////////////////////////////////////////////////
-const Navbar = (props) => {
-    ////// Init Values :
-
-    ////// Init State :
-
-    ////// Init Function :
-
-    // React.useEffect(()=>{
-    //
-    // },[])
-
-    ////// Lifecycle Functions :
-
-    // React.useEffect(()=>{
-    //
-    // },[ _________ ])
-
-    ////// Internal Functions :
-
-    ////// Tests
-
-
-
-
-
-
-
-    ///////////////////////-- Return ( Display ) --///////////////////////////////////////////////////////////////////////////////////////
-
+const Navbar = props => {
     return (
-        <header>
-            Navbar
+        <nav className={styles.navbar}>
+            <ul className={styles.listNav + " container"}>
+                {routes
+                    .filter(route => route.nav)
+                    .map(route => (
+                        <Link className={styles.link} to={route.path}>
+                            {route.name}
+                        </Link>
+                    ))}
+            </ul>
+        </nav>
+    );
+};
 
-        </header >
-
-    )
-
-}
-
-
-export default Navbar
+export default Navbar;

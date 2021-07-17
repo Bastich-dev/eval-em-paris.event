@@ -1,0 +1,20 @@
+.navbar {
+    background-color: var(--primary-bg-color);
+}
+
+.listNav {
+    display: flex;
+}
+
+.link {
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: large;
+    font-family: var(--primary-font-family);
+}
+
+.link:hover {
+    background-color: blue;
+}
