@@ -48,7 +48,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "weback": "webpack --mode production"
+    "webpack": "webpack --mode production"
   },
   "eslintConfig": {
     "extends": "react-app"
