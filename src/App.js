@@ -5,7 +5,6 @@ import routes from "./routes";
 import "./App.css";
 import FavoritesContext from "./utils/FavoritesContext";
 import { useLocalStorage } from "./utils/useLocalStorage";
-import "regenerator-runtime/runtime";
 
 function App() {
     const [name, setName] = useLocalStorage("username", []);
