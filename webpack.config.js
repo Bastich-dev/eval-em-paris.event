@@ -3,16 +3,36 @@ const HtmlWebpackPlugin = require("html-webpack-plugin"); //installed via npm
 const path = require("path");
 
 module.exports = {
+    mode: "development",
+    entry: {
+        index: "./src/index.js",
+        print: "./src/print.js",
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: "Output Management",
+            title: "Development",
+        }),
+    ],
+    output: {
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, "dist"),
+        clean: true,
+    },
+
     mode: "production",
-    entry: ["@babel/polyfill", "./src/index.js"],
+    entry: ["babel-polyfill", "./src/index.js"],
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js",
+        publicPath: "/",
     },
+    // optimization: {
+    //     splitChunks: {chunks: 'all'}
+    // },
+
     module: {
         rules: [
-            // text loader
-            { test: /\.txt$/, use: "raw-loader" },
             // css loader
             {
                 test: /\.s?css$/,
@@ -30,10 +50,28 @@ module.exports = {
                 loader: "babel-loader",
             },
             {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [{ loader: "file-loader" }],
+                test: /\.(woff(2)?|ttf|eot|gif|png|jpe?g|svg|ico)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    // 'file-loader',
+                    {
+                        loader: "file-loader",
+                        options: {
+                            // bypassOnDebug: true, // webpack@1.x
+                            // disable: true, // webpack@2.x and newer
+                            name: "admin/root[path][name].[ext]",
+                        },
+                    },
+                ],
             },
         ],
     },
-    plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" })],
+    devServer: {
+        historyApiFallback: true,
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./public/index.html",
+            favicon: "./public/favicon.ico",
+        }),
+    ],
 };
