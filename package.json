@@ -16,24 +16,25 @@
         "url": "https://github.com/BastosC"
     },
     "dependencies": {
-      "babel-polyfill": "^6.26.0",
         "@babel/cli": "^7.0.0",
-        "@babel/core": "^7.11.6",
+        "@babel/core": "^7.14.6",
+        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.14.5",
         "@babel/polyfill": "^7.0.0",
         "@babel/preset-env": "^7.11.5",
         "@babel/preset-react": "^7.10.4",
         "@babel/runtime": "^7.14.6",
         "@babel/runtime-corejs3": "^7.14.7",
-        "babel-core": "7.0.0-bridge.0",
         "babel-loader": "^8.1.0",
         "babel-plugin-polyfill-corejs3": "^0.2.3",
-        "core-js": "^3.6.5", 
+        "babel-polyfill": "^6.26.0",
+        "core-js": "^3.6.5",
         "css-loader": "^4.3.0",
         "file-loader": "^6.1.0",
         "framer-motion": "^4.1.17",
         "html-loader": "^1.3.1",
         "html-webpack-plugin": "^4.5.0",
         "image-webpack-loader": "^7.0.1",
+        "leaflet": "^1.7.1",
         "raw-loader": "^4.0.1",
         "react": "16.13.1",
         "react-dom": "16.13.1",
@@ -52,20 +53,9 @@
         "eject": "react-scripts eject",
         "webpack": "webpack --mode production"
     },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {}
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+    ]
 }

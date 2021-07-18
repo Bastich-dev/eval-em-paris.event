@@ -54,14 +54,16 @@ nav li {
 
 * {
     font-family: var(--primary-font-family);
+    color: #444;
 }
 
 #root {
     background-image: url("https://www.austrianblog.com/media/images/paris-city-of-love.original.jpg");
     background-position: center;
     /* background-repeat: no-repeat; */
-    /* background-size: cover; */
+    background-size: cover;
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
 }
@@ -74,7 +76,7 @@ main {
 }
 
 .divider {
-    border: 1px solid #ddd;
+    border: 1px solid var(--primary-bg-color);
 }
 
 .displayEvents {

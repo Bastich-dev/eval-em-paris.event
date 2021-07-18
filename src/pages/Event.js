@@ -5,6 +5,9 @@ import Title from "../components/Event/Title";
 import Body from "../components/Event/Body";
 import Sidebar from "../components/Event/Sidebar";
 import WithLoading from "../components/_common/WithLoading";
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/Animations";
+
 export default function Event(props) {
     const location = useLocation();
 
@@ -31,7 +34,12 @@ export default function Event(props) {
                     {eventData && (
                         <React.Fragment>
                             <Title event={eventData} />
-                            <hr className="divider" />
+                            <motion.hr
+                                initial="hidden"
+                                animate="visible"
+                                variants={fadeIn}
+                                className="divider"
+                            />
                             <div
                                 style={{
                                     display: "flex",

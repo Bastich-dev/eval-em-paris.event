@@ -2,7 +2,11 @@ import React from "react";
 import styles from "./Sidebar.module.css";
 import FavoriteButton from "../_common/FavoriteButton";
 import FavoritesContext from "../../utils/FavoritesContext";
-// import Map from "./Map";
+import getFilteredDates from "../../utils/getFilteredDates";
+import { motion } from "framer-motion";
+import { fadeLeftWithDelaySidebar } from "../../utils/Animations";
+
+import Map from "./Map";
 export default function Sidebar({ event }) {
     const { favoritesEvents, updateFavoritesEvents } =
         React.useContext(FavoritesContext);
@@ -19,32 +23,15 @@ export default function Sidebar({ event }) {
         }
     };
 
-    // Pour filtrer les dates à venir  et pas tout les événements
-    let listDates = event.fields.date_description
-        .split("<br />")
-        .join(" ")
-        .split("Le")
-        .join("###Le")
-        .split("###");
-    listDates.shift();
-
-    const keysToDelete = event.fields.occurrences
-        .split(";")
-        .map((el, key) => {
-            if (new Date(el.split("_")[0]).getTime() < new Date().getTime())
-                return key;
-            else return null;
-        })
-        .filter((e) => e !== null);
-
-    listDates = listDates.filter(
-        (el, key) => keysToDelete.findIndex((e) => e === key) === -1
-    );
-
     const toggle = favoritesEvents.indexOf(event.id) > -1;
 
     return (
-        <section className={styles.sidebar}>
+        <motion.section
+            initial="hidden"
+            animate="visible"
+            variants={fadeLeftWithDelaySidebar}
+            className={styles.sidebar}
+        >
             <div className={styles.sidebarFavButton} onClick={handleFavorite}>
                 <FavoriteButton toggle={toggle} />
                 <span
@@ -59,7 +46,10 @@ export default function Sidebar({ event }) {
 
             <div className={styles.sidebarSectionTitle}>Dates à venir :</div>
             <ul>
-                {listDates.map((date, key) => (
+                {getFilteredDates({
+                    date_description: event.fields.date_description,
+                    occurrences: event.fields.occurrences,
+                }).map((date, key) => (
                     <li key={key}>{date}</li>
                 ))}
             </ul>
@@ -68,11 +58,8 @@ export default function Sidebar({ event }) {
             <span>{event.fields.price_detail}</span>
 
             <div className={styles.sidebarSectionTitle}>S'y rendre :</div>
-            <div>
-                {/* <Map
-                    lat={event.fields.lat_lon.lat}
-                    lon={event.fields.lat_lon.lon}
-                /> */}
+            <div style={{ width: "100%", height: 300 }}>
+                <Map position={event.fields.lat_lon} />{" "}
             </div>
             <div className={styles.sidebarDetails}>
                 {event.fields.address_name}
@@ -120,7 +107,7 @@ export default function Sidebar({ event }) {
                     </a>
                 </div>
             )}
-        </section>
+        </motion.section>
     );
 }
 
@@ -181,8 +168,8 @@ const FacebookIcon = (
 const TwitterIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
+        width="24"
+        height="24"
         viewBox="0 0 26 22"
     >
         <path

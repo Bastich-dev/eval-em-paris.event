@@ -2,7 +2,7 @@
 
 ## _Paris events_
 
-# Lien de visualisation :
+# Lien de visualisation : [https://eval-em-juillet-2021.vercel.app/][https://eval-em-juillet-2021.vercel.app/]
 
 ##### Versionning & production
 
@@ -30,7 +30,7 @@ J'ai pris la liberté de changer quelques styles par rapport aux "maquettes"
 ##### Librairies
 
 J'ai voulu insérer le minum de librairies pour faire le plus petit bundle .
-Je n'ai implémenter la librairie "react-leaflet" pour la map et aussi les libs pour Webpack & co
+Je n'ai implémenter les librairies "leaflet" et "react-leaflet" pour la map et aussi les libs pour Webpack & co
 Tout le js est donc fait à la main hormis :
 
 -   le /src/utils/useLocalStorage.js, que j'ai trouvé la (https://typeofnan.dev/using-local-storage-in-react-with-your-own-custom-uselocalstorage-hook/) mais en vrai j'aurais pu le faire
@@ -51,9 +51,9 @@ Taille bundle.js final :
 ### Accueil :
 
 Utilisation de la font "Parisienne", j'ai trouvé ça drôle
-Simple appel sur l'api et affichage des 3 derniers evenements ( appel API avec le parametre "&rows=3" )
+Simple appel sur l'api et affichage des 3 derniers evenements ( appel API avec le parametre "&rows=3" ) et "&sort=-date_start" pour le tri ( j'ai pris le param que vous avez utiliser pour la démo car le brief ne précise pas le paramètre à utiliser )
 et affichage .
-Pour le tooltip "Dates à venir", j'ai récupéré "record.fields.occurences" qui me sert à avoir les timestamps que je peux comparer avec la date d'aujourd'hui et comme ça je peux filtrer "record.fields.date_description" et n'obtenir que les dates futurs ( feature dispo sur toutes les cartes d'événements )
+Pour le tooltip "Dates à venir", j'ai récupéré "record.fields.occurences" qui me sert à avoir les timestamps que je peux comparer avec la date d'aujourd'hui et comme ça je peux filtrer "record.fields.date_description" et n'obtenir que les dates futurs ( feature dispo sur toutes les cartes d'événements ), tout ça dans une fonction /src/utils/getfilteredDates.js
 
 ### Rechercher un événement :
 
@@ -70,3 +70,5 @@ Pour ce qui est de la sauvegarde des evenements, je ne stocke que l'id, et donc,
 ### Informations événements :
 
 Appel en fonction de l'id dans l'url, récupération et affichage des informations simple .
+
+> NB : Je n'ai pas eu le choix de travailler pour mon entreprise la semaine durant la réalisation de ce projet ( d'ou les suivis absents ), j'ai donc du le faire enitèrement ce week-end .

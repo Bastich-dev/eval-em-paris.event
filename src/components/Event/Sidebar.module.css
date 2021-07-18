@@ -5,7 +5,6 @@
     border-radius: 10px;
     padding: 20px;
     margin-top: 20px;
-    color: #333;
 }
 
 @media (max-width: 900px) {
@@ -46,6 +45,7 @@
 .sidebarContact {
     display: flex;
     align-items: center;
+    margin: 5px 0;
 }
 
 .sidebarContact a {

@@ -15,7 +15,7 @@ export default {
     },
 
     getListLastEvents: async () => {
-        const target = `catalog/datasets/que-faire-a-paris-/records/?rows=3&sort=date_start`;
+        const target = `catalog/datasets/que-faire-a-paris-/records/?rows=3&sort=-date_start`;
         const response = await fetch(urlApi + target, {
             method: "GET",
             headers,
@@ -24,7 +24,7 @@ export default {
     },
 
     getListEventsFromSearch: async ({ search, date, city }) => {
-        const target = `catalog/datasets/que-faire-a-paris-/records/?rows=15&sort=date_start${
+        const target = `catalog/datasets/que-faire-a-paris-/records/?rows=15&sort=-date_start${
             search && `&search=${search}`
         }`;
         const response = await fetch(urlApi + target, {

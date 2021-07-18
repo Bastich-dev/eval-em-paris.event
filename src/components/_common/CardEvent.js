@@ -4,6 +4,7 @@ import styles from "./CardEvent.module.css";
 import { motion } from "framer-motion";
 import FavoritesContext from "../../utils/FavoritesContext";
 import FavoriteButton from "./FavoriteButton";
+import getFilteredDates from "../../utils/getFilteredDates";
 
 export default function CardEvent({ index, event }) {
     const { favoritesEvents, updateFavoritesEvents } =
@@ -25,33 +26,13 @@ export default function CardEvent({ index, event }) {
         visible: {
             opacity: 1,
             transition: {
-                delay: index * 0.2,
+                delay: index * 0.25,
             },
         },
         hidden: { opacity: 0 },
     };
 
     // Pour filtrer les dates à venir  et pas tout les événements
-    let listDates = event.fields.date_description
-        .split("<br />")
-        .join(" ")
-        .split("Le")
-        .join("###Le")
-        .split("###");
-    listDates.shift();
-
-    const keysToDelete = event.fields.occurrences
-        .split(";")
-        .map((el, key) => {
-            if (new Date(el.split("_")[0]).getTime() < new Date().getTime())
-                return key;
-            else return null;
-        })
-        .filter((e) => e !== null);
-
-    listDates = listDates.filter(
-        (el, key) => keysToDelete.findIndex((e) => e === key) === -1
-    );
 
     const handleFavorite = () => {
         if (favoritesEvents.indexOf(event.id) > -1) {
@@ -96,7 +77,10 @@ export default function CardEvent({ index, event }) {
                 <div className={styles.tooltip}>
                     Dates à venir ᐃ
                     <span className={styles.tooltiptext}>
-                        {listDates.map((date, key) => (
+                        {getFilteredDates({
+                            date_description: event.fields.date_description,
+                            occurrences: event.fields.occurrences,
+                        }).map((date, key) => (
                             <li key={key} className={styles.dateText}>
                                 {date}
                             </li>

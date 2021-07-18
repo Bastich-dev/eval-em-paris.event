@@ -1,15 +1,20 @@
 import React from "react";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
+// import "leaflet/dist/leaflet.css";
 
-export default function Map({ lat, lon }) {
+export default function Map({ position }) {
     return (
-        <div></div>
-        // <iframe
-        //     width="200"
-        //     height="200"
-        //     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDTifUEkJirTuMoebWwAw77e9sHSEvSUjw
-        //     &q=Space+Needle,Seattle+WA"
-        // >
-
-        // </iframe>
+        <MapContainer
+            center={position}
+            zoom={12}
+            scrollWheelZoom={false}
+            style={{ height: "100%" }}
+        >
+            <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position}></Marker>
+        </MapContainer>
     );
 }
