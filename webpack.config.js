@@ -50,18 +50,8 @@ module.exports = {
                 loader: "babel-loader",
             },
             {
-                test: /\.(woff(2)?|ttf|eot|gif|png|jpe?g|svg|ico)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [
-                    // 'file-loader',
-                    {
-                        loader: "file-loader",
-                        options: {
-                            // bypassOnDebug: true, // webpack@1.x
-                            // disable: true, // webpack@2.x and newer
-                            name: "admin/root[path][name].[ext]",
-                        },
-                    },
-                ],
+                test: /\.(woff(2)?|ttf|eot|gif|png|jpe?g|svg|ico|map|pane)(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file-loader",
             },
         ],
     },
