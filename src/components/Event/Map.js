@@ -2,9 +2,9 @@ import React from "react";
 import { Map, TileLayer, Marker } from "react-leaflet";
 // import "leaflet/dist/leaflet.css";
 
-export default function Map({ position }) {
+export default function LeafletMap({ position }) {
     return (
-        <MapContainer
+        <Map
             center={position}
             zoom={12}
             scrollWheelZoom={false}
@@ -15,6 +15,6 @@ export default function Map({ position }) {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={position}></Marker>
-        </MapContainer>
+        </Map>
     );
 }
