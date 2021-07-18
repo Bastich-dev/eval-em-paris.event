@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Sidebar.module.css";
 import FavoriteButton from "../_common/FavoriteButton";
 import FavoritesContext from "../../utils/FavoritesContext";
-import Map from "./Map";
+// import Map from "./Map";
 export default function Sidebar({ event }) {
     const { favoritesEvents, updateFavoritesEvents } =
         React.useContext(FavoritesContext);
@@ -42,8 +42,6 @@ export default function Sidebar({ event }) {
     );
 
     const toggle = favoritesEvents.indexOf(event.id) > -1;
-
-    console.log(listDates);
 
     return (
         <section className={styles.sidebar}>

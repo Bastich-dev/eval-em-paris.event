@@ -17,7 +17,7 @@ export default function Event(props) {
             .catch(() => {
                 seteventData(null);
             });
-    }, []);
+    }, [id]);
 
     return (
         <React.Fragment>
