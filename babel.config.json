@@ -3,5 +3,6 @@
       "@babel/preset-env", {
         "useBuiltIns": "entry"
       }],
-      "@babel/preset-react"]
+      "@babel/preset-react"],
+      "plugins": [["polyfill-corejs3", { "method": "usage-global" }]]
   }
