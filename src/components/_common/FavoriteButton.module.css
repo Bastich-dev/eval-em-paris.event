@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+
+.ico {
+    border-radius: 50%;
+    cursor: pointer;
+    fill: #232323;
+    transition: 0.4s;
+}
+
+.liked {
+    transform: scale(1.05) rotate(360deg);
+    background-color: var(--variant-3-bg-color);
+    padding: 0.3rem;
+    fill: white;
+}

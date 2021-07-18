@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from "react";
-import styles from "./ListNewEvents.module.css";
+import React, { useState } from "react";
 import WithLoading from "../_common/WithLoading";
 import API_OpenDataParis from "../../utils/API_OpenDataParis";
 import CardEvent from "../_common/CardEvent";
-export default function ListNewEvents(props) {
+import FavoritesContext from "../../utils/FavoritesContext";
+
+export default function ListFavoritesEvents(props) {
+    const { favoritesEvents } = React.useContext(FavoritesContext);
+
     const [listEvent, setlistEvent] = useState();
 
-    useEffect(() => {
-        API_OpenDataParis.getListLastEvents()
-            .then((events) => setlistEvent(events.map((event) => event.record)))
-            .catch(() => setlistEvent(null));
-    }, []);
+    React.useEffect(() => {
+        Promise.all(
+            favoritesEvents.map((id) =>
+                API_OpenDataParis.getEventFromId({ id })
+            )
+        ).then((events) => {
+            setlistEvent(events);
+        });
+    }, [favoritesEvents]);
 
     return (
         <section>
-            <h2 className={styles.title}>Actualités</h2>
-            <p className={styles.desc}>Les derniers événements publiés :</p>
             <WithLoading
                 ifLoading={listEvent === undefined}
                 ifEmpty={listEvent?.length === 0}
-                componentIfEmpty={<div>Aucun énévement</div>}
+                componentIfEmpty={
+                    <div>Aucun énévement sauvegardé en favoris</div>
+                }
                 ifError={listEvent === null}
             >
                 <div className="displayEvents">

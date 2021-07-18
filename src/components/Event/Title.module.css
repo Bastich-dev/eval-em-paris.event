@@ -1,0 +1,12 @@
+.title {
+    margin: 0;
+    padding: 50px 0px 0px 0;
+    font-size: 36px;
+}
+
+.subtitle {
+    margin: 10px 0 20px 0;
+    font-size: 30px;
+    font-weight: normal;
+    color: grey;
+}

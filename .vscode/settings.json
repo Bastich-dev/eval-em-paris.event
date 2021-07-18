@@ -1,0 +1,5 @@
+{
+    "editor.wordWrapColumn": 150,
+    "diffEditor.wordWrap": "off",
+    "editor.wrappingIndent": "indent"
+}

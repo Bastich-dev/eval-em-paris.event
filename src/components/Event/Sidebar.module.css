@@ -1,0 +1,56 @@
+.sidebar {
+    width: 30%;
+    margin-left: 15px;
+    background-color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    color: #333;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+
+.sidebarFavButton {
+    border: 1px solid var(--variant-3-bg-color);
+    /* padding: 10px 20px; */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: white;
+    height: 42px;
+}
+
+.sidebarFavButton span {
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.sidebarSectionTitle {
+    margin: 35px 0 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sidebarDetails {
+    font-style: italic;
+    color: grey;
+}
+
+.sidebarContact {
+    display: flex;
+    align-items: center;
+}
+
+.sidebarContact a {
+    margin-left: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

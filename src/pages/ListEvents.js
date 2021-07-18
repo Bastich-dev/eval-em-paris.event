@@ -1,9 +1,10 @@
 import React from "react";
+import ListSearchEvents from "../components/ListEvents/ListSearchEvents";
 
 export default function Home(props) {
     return (
         <React.Fragment>
-            <section></section>
+            <ListSearchEvents />
         </React.Fragment>
     );
 }

@@ -1,8 +1,14 @@
 .title {
     margin: 0;
     padding: 50px 0px 20px 0;
-    font-size: 36px;
+    font-size: 76px;
+    font-weight: bold;
+    font-family: "Parisienne";
 }
 
 .desc {
+    margin-left: 30px;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: "Parisienne";
 }

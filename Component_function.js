@@ -1,5 +1,5 @@
 ////// React Core :
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 ////// Backend :
 
@@ -17,7 +17,6 @@ import React, { useState } from 'react'
 ////// Styles :
 
 ////// Constants :
-
 
 ///////////////////////-- Component Function --///////////////////////////////////////////////////////////////////////////////////////
 const _________________ = (props) => {
@@ -41,23 +40,9 @@ const _________________ = (props) => {
 
     ////// Tests
 
-
-
-
-
-
-
     ///////////////////////-- Return ( Display ) --///////////////////////////////////////////////////////////////////////////////////////
 
-    return (
-        <____>
+    return <____></____>;
+};
 
-
-        </____ >
-
-    )
-
-}
-
-
-export default _________________
+export default _________________;

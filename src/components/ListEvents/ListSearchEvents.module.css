@@ -1,0 +1,41 @@
+.title {
+    margin: 0;
+    padding: 50px 0px 20px 0;
+    font-size: 36px;
+}
+
+.desc {
+}
+
+.containerForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputSearch {
+    width: 100%;
+    border: 1px solid silver;
+    border-radius: 5px;
+    height: 30px;
+    text-align: center;
+    width: 80%;
+    margin: 5px auto;
+}
+
+.submitButton {
+    cursor: pointer;
+    margin: 22px auto;
+    padding: 15px 30px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: var(--primary-bg-color);
+    color: white;
+    outline-style: none;
+}
+
+.submitButton:focus {
+    margin: 21px auto;
+    border: 1px solid black;
+}
