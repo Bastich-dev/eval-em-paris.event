@@ -14,11 +14,11 @@
     }
 }
 
-/* @media (max-width: 900px) {
+@media (max-width: 900px) {
     .cardContainer {
-        width: 50%;
+        width: 95%;
     }
-} */
+}
 
 .cardContainer:hover {
     transform: scale(1.05);
@@ -76,6 +76,12 @@
     margin-left: -60px;
     opacity: 0;
     transition: opacity 0.3s;
+}
+
+@media (max-width: 900px) {
+    .tooltip .tooltiptext {
+        min-width: 150px;
+    }
 }
 
 .tooltip .tooltiptext::after {

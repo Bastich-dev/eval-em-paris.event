@@ -74,6 +74,12 @@ nav li {
     z-index: -1;
 }
 
+@media (max-width: 900px) {
+    .background {
+        display: none;
+    }
+}
+
 main {
     background-color: white;
     padding: 0 40px;

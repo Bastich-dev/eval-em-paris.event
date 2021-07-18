@@ -4,6 +4,7 @@
 
 .listNav {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .link {
