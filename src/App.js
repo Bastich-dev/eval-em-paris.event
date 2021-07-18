@@ -16,6 +16,7 @@ function App() {
 
     return (
         <BrowserRouter>
+            <div className="background" />
             <header>
                 <Navbar />
             </header>

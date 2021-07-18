@@ -2,7 +2,7 @@
 
 ## _Paris events_
 
-# Lien de visualisation : [https://eval-em-juillet-2021.vercel.app/][https://eval-em-juillet-2021.vercel.app/]
+# Lien de visualisation : [https://em-paris-events.vercel.app/][https://em-paris-events.vercel.app/]
 
 ##### Versionning & production
 
