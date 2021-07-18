@@ -9,18 +9,11 @@
         "JSX",
         "React",
         "WEBPACK",
-        "DJANGO"
     ],
     "author": {
         "name": "Bastien Chantrel",
         "email": "bastien.chantrel.pro@gmail.com",
         "url": "https://github.com/BastosC"
-    },
-    "config": {
-        "name": "foo",
-        "config": {
-            "port": "8080"
-        }
     },
     "dependencies": {
       "babel-polyfill": "^6.26.0",
@@ -34,7 +27,7 @@
         "babel-core": "7.0.0-bridge.0",
         "babel-loader": "^8.1.0",
         "babel-plugin-polyfill-corejs3": "^0.2.3",
-        "core-js": "^3.6.5",
+        "core-js": "^3.6.5", 
         "css-loader": "^4.3.0",
         "file-loader": "^6.1.0",
         "framer-motion": "^4.1.17",
