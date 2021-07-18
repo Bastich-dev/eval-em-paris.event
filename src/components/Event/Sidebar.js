@@ -71,10 +71,10 @@ export default function Sidebar({ event }) {
 
             <div className={styles.sidebarSectionTitle}>S'y rendre :</div>
             <div>
-                <Map
+                {/* <Map
                     lat={event.fields.lat_lon.lat}
                     lon={event.fields.lat_lon.lon}
-                />
+                /> */}
             </div>
             <div className={styles.sidebarDetails}>
                 {event.fields.address_name}
