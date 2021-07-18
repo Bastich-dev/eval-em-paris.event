@@ -32,81 +32,90 @@ export default function Sidebar({ event }) {
             variants={fadeLeftWithDelaySidebar}
             className={styles.sidebar}
         >
-            <div className={styles.sidebarFavButton} onClick={handleFavorite}>
-                <FavoriteButton toggle={toggle} />
-                <span
-                    style={{
-                        fontWeight: toggle ? "bold" : "normal",
-                        color: toggle ? "var(--variant-3-bg-color)" : "black",
-                    }}
+            <div style={{ padding: 20 }}>
+                <div
+                    className={styles.sidebarFavButton}
+                    onClick={handleFavorite}
                 >
-                    {toggle ? "Sauvegardé :)" : "Sauvegarder"}
-                </span>
-            </div>
-
-            <div className={styles.sidebarSectionTitle}>Dates à venir :</div>
-            <ul>
-                {getFilteredDates({
-                    date_description: event.fields.date_description,
-                    occurrences: event.fields.occurrences,
-                }).map((date, key) => (
-                    <li key={key}>{date}</li>
-                ))}
-            </ul>
-
-            <div className={styles.sidebarSectionTitle}>Prix :</div>
-            <span>{event.fields.price_detail}</span>
-
-            <div className={styles.sidebarSectionTitle}>S'y rendre :</div>
-            <div style={{ width: "100%", height: 300 }}>
-                <Map position={event.fields.lat_lon} />{" "}
-            </div>
-            <div className={styles.sidebarDetails}>
-                {event.fields.address_name}
-            </div>
-            <div className={styles.sidebarDetails}>
-                {event.fields.address_street}
-            </div>
-            <div className={styles.sidebarDetails}>
-                {event.fields.address_zipcode} {event.fields.address_city}
-            </div>
-
-            <div className={styles.sidebarSectionTitle}>En transports</div>
-            <pre>{event.fields.transport}</pre>
-
-            <div className={styles.sidebarSectionTitle}>Plus d'infos</div>
-            {event.fields.contact_phone && (
-                <div className={styles.sidebarContact}>
-                    <div>{TelIcon}</div>
-                    <a href={event.fields.contact_phone}>
-                        {event.fields.contact_phone}
-                    </a>
+                    <FavoriteButton toggle={toggle} />
+                    <span
+                        style={{
+                            fontWeight: toggle ? "bold" : "normal",
+                            color: toggle
+                                ? "var(--variant-3-bg-color)"
+                                : "black",
+                        }}
+                    >
+                        {toggle ? "Sauvegardé :)" : "Sauvegarder"}
+                    </span>
                 </div>
-            )}
-            {event.fields.contact_mail && (
-                <div className={styles.sidebarContact}>
-                    <div>{MailIcon}</div>
-                    <a href={event.fields.contact_mail}>
-                        {event.fields.contact_mail}
-                    </a>
+
+                <div className={styles.sidebarSectionTitle}>
+                    Dates à venir :
                 </div>
-            )}
-            {event.fields.contact_facebook && (
-                <div className={styles.sidebarContact}>
-                    <div>{FacebookIcon}</div>
-                    <a href={event.fields.contact_facebook}>
-                        {event.fields.contact_facebook}
-                    </a>
+                <ul>
+                    {getFilteredDates({
+                        date_description: event.fields.date_description,
+                        occurrences: event.fields.occurrences,
+                    }).map((date, key) => (
+                        <li key={key}>{date}</li>
+                    ))}
+                </ul>
+
+                <div className={styles.sidebarSectionTitle}>Prix :</div>
+                <span>{event.fields.price_detail}</span>
+
+                <div className={styles.sidebarSectionTitle}>S'y rendre :</div>
+                <div style={{ width: "100%", height: 300 }}>
+                    <Map position={event.fields.lat_lon} />{" "}
                 </div>
-            )}
-            {event.fields.contact_twitter && (
-                <div className={styles.sidebarContact}>
-                    <div>{TwitterIcon}</div>
-                    <a href={event.fields.contact_twitter}>
-                        {event.fields.contact_twitter}
-                    </a>
+                <div className={styles.sidebarDetails}>
+                    {event.fields.address_name}
                 </div>
-            )}
+                <div className={styles.sidebarDetails}>
+                    {event.fields.address_street}
+                </div>
+                <div className={styles.sidebarDetails}>
+                    {event.fields.address_zipcode} {event.fields.address_city}
+                </div>
+
+                <div className={styles.sidebarSectionTitle}>En transports</div>
+                <pre>{event.fields.transport}</pre>
+
+                <div className={styles.sidebarSectionTitle}>Plus d'infos</div>
+                {event.fields.contact_phone && (
+                    <div className={styles.sidebarContact}>
+                        <div>{TelIcon}</div>
+                        <a href={event.fields.contact_phone}>
+                            {event.fields.contact_phone}
+                        </a>
+                    </div>
+                )}
+                {event.fields.contact_mail && (
+                    <div className={styles.sidebarContact}>
+                        <div>{MailIcon}</div>
+                        <a href={event.fields.contact_mail}>
+                            {event.fields.contact_mail}
+                        </a>
+                    </div>
+                )}
+                {event.fields.contact_facebook && (
+                    <div className={styles.sidebarContact}>
+                        <div>{FacebookIcon}</div>
+                        <a href={event.fields.contact_facebook}>
+                            {event.fields.contact_facebook}
+                        </a>
+                    </div>
+                )}
+                {event.fields.contact_twitter && (
+                    <div className={styles.sidebarContact}>
+                        <div>{TwitterIcon}</div>
+                        <a href={event.fields.contact_twitter}>
+                            {event.fields.contact_twitter}
+                        </a>
+                    </div>
+                )}
+            </div>
         </motion.section>
     );
 }
